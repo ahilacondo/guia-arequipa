@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Design tokens — Guía Arequipa
+   Paleta inspirada en la ciudad: sillar (crema), rocoto (rojo), campiña
+   (verde) y cielo andino (azul). Todos los pares texto/fondo usados en la
+   app superan 4.5:1 (WCAG 2.2 AA, criterio 1.4.3).
+   ========================================================================== */
+:root {
+  /* color */
+  --bg: #faf6ef;          /* sillar claro */
+  --surface: #ffffff;
+  --ink: #2a211b;         /* casi negro cálido */
+  --muted: #6b5f55;
+  --line: #e6ddd0;
+
+  --primary: #b3261e;     /* rojo rocoto */
+  --primary-strong: #8f1d17;
+  --primary-soft: #fbe4e1;
+  --on-primary: #ffffff;
+
+  --accent: #1f5f8b;      /* cielo andino */
+  --accent-soft: #e2eef6;
+
+  --hero-from: #3b2a20;
+  --hero-to: #7a3b22;
+
+  /* categorías */
+  --cat-historia: #7a3410;
+  --cat-historia-bg: #f6e6d8;
+  --cat-naturaleza: #21532f;
+  --cat-naturaleza-bg: #dff0e3;
+  --cat-gastronomia: #8c1d18;
+  --cat-gastronomia-bg: #fbe4e1;
+
+  /* tipografía */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem);
+
+  /* espacio, radios y sombras */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 1px 2px rgb(42 33 27 / 8%), 0 6px 18px rgb(42 33 27 / 8%);
+  --shadow-lg: 0 2px 4px rgb(42 33 27 / 10%), 0 14px 34px rgb(42 33 27 / 14%);
+
+  /* layout */
+  --nav-h: 64px;
+  --sidebar-w: 248px;
+  --content-max: 1120px;
+  --tap: 44px; /* tamaño mínimo de objetivo táctil (recomendación ≥ 44 px) */
+}

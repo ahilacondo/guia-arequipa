@@ -1,0 +1,228 @@
+/* Componentes reutilizables: botones, etiquetas, chips, tarjetas, datos rápidos */
+
+/* ---- botones ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.btn:active { transform: scale(0.98); }
+
+.btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.btn--primary { background: var(--primary); color: var(--on-primary); }
+.btn--primary:hover { background: var(--primary-strong); }
+
+.btn--ghost { background: var(--surface); color: var(--ink); border-color: var(--line); }
+.btn--ghost:hover { border-color: var(--muted); }
+
+.btn--danger { background: var(--surface); color: var(--primary-strong); border-color: var(--primary); }
+.btn--danger:hover { background: var(--primary-soft); }
+
+.btn--block { width: 100%; }
+
+.btn[aria-pressed="true"] { background: var(--primary-soft); color: var(--primary-strong); border-color: var(--primary); }
+
+/* ---- etiquetas de categoría ---- */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+.tag--historia { background: var(--cat-historia-bg); color: var(--cat-historia); }
+.tag--naturaleza { background: var(--cat-naturaleza-bg); color: var(--cat-naturaleza); }
+.tag--gastronomia { background: var(--cat-gastronomia-bg); color: var(--cat-gastronomia); }
+
+/* ---- chips de filtro ---- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.chip:hover { border-color: var(--muted); }
+
+.chip[aria-pressed="true"],
+.chip[aria-current="true"] {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary-strong);
+}
+
+/* ---- tarjeta de lugar ---- */
+.grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+}
+
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+
+.card__media { aspect-ratio: 1; background: var(--line); }
+.card__media svg { width: 100%; height: 100%; object-fit: cover; }
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-3);
+  padding-right: 58px; /* espacio para el botón de favorito */
+  min-width: 0;
+}
+
+.card__title { font-size: var(--fs-lg); }
+
+.card__title a { color: inherit; text-decoration: none; }
+/* toda la tarjeta es clicable */
+.card__title a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+
+.card__meta { color: var(--muted); font-size: var(--fs-sm); }
+.card__body .tag { align-self: flex-start; margin-top: auto; }
+
+.fav-btn {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  z-index: 2; /* por encima del enlace extendido */
+  display: grid;
+  place-items: center;
+  width: var(--tap);
+  height: var(--tap);
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.fav-btn svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+
+.fav-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.fav-btn[aria-pressed="true"] {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.fav-btn[aria-pressed="true"] svg { fill: currentColor; }
+.fav-btn.pop { animation: pop 0.25s ease-out; }
+
+@keyframes pop {
+  50% { transform: scale(1.25); }
+}
+
+/* ≥ 560 px: tarjeta vertical (imagen arriba) */
+@media (min-width: 560px) {
+  .card { grid-template-columns: 1fr; }
+  .card__media { aspect-ratio: 16 / 10; }
+  .card__body { padding: var(--space-4); padding-right: var(--space-4); gap: var(--space-2); }
+  .card__body .tag { margin-top: var(--space-1); }
+  .fav-btn { top: var(--space-3); right: var(--space-3); background: rgb(255 255 255 / 92%); }
+}
+
+/* tarjeta horizontal explícita (listas de favoritos) */
+.card--row { grid-template-columns: 112px minmax(0, 1fr) !important; }
+.card--row .card__media { aspect-ratio: 1 !important; }
+.card--row .card__body { padding: var(--space-3) 58px var(--space-3) var(--space-3) !important; gap: var(--space-1) !important; }
+.card--row .fav-btn { top: var(--space-2) !important; right: var(--space-2) !important; }
+
+@media (min-width: 900px) {
+  .card--row { grid-template-columns: 160px minmax(0, 1fr) !important; }
+}
+
+/* ---- datos rápidos ---- */
+.facts {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fact {
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.fact__label { display: block; font-size: 0.8125rem; color: var(--muted); }
+.fact__value { display: block; font-weight: 700; }
+
+/* ---- encabezado de sección ---- */
+.section { margin-top: var(--space-6); }
+.section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.page-head { margin-bottom: var(--space-5); display: grid; gap: var(--space-2); }
+.page-head p { color: var(--muted); max-width: 60ch; }
+
+/* ---- estado vacío ---- */
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  background: var(--surface);
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+}
+.empty svg { width: 56px; height: 56px; }
+.empty p { color: var(--muted); max-width: 44ch; }
+
+/* ---- barra de progreso ---- */
+.progress {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+.progress__bar {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: var(--cat-naturaleza);
+  transition: width 0.3s ease;
+}
