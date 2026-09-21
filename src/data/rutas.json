@@ -1,0 +1,30 @@
+[
+  {
+    "id": "centro-historico",
+    "nombre": "Centro histórico",
+    "resumen": "El recorrido clásico a pie por el corazón colonial de la ciudad.",
+    "duracion": "~6 h · medio día",
+    "paradas": ["plaza-de-armas", "santa-catalina", "museo-santuarios"]
+  },
+  {
+    "id": "miradores-campina",
+    "nombre": "Miradores y campiña",
+    "resumen": "Vistas abiertas de los volcanes y la campiña, fuera del casco colonial.",
+    "duracion": "~5 h",
+    "paradas": ["yanahuara", "sabandia", "campina"]
+  },
+  {
+    "id": "sabores-arequipenos",
+    "nombre": "Sabores arequipeños",
+    "resumen": "Una probadita de la cocina de la ciudad, del rocoto a las picanterías.",
+    "duracion": "~3 h",
+    "paradas": ["rocoto-relleno", "chupe-camarones", "picanterias"]
+  },
+  {
+    "id": "naturaleza-extrema",
+    "nombre": "Volcanes y cañón",
+    "resumen": "Para quienes tienen más días: el Misti y el Cañón del Colca.",
+    "duracion": "2-3 días",
+    "paradas": ["misti", "colca"]
+  }
+]
