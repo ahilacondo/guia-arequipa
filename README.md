@@ -2,7 +2,6 @@
 
 Aplicación web local, responsive y orientada a dispositivos móviles que funciona como una guía turística de Arequipa (Perú): lugares para visitar, rutas sugeridas, gastronomía típica e información práctica para el viajero.
 
-Proyecto del curso **Plataformas Emergentes** (UNSA) — Laboratorio 3.
 
 ## Tecnologías
 
@@ -18,18 +17,18 @@ No se usan librerías de UI ni de manejo de estado: los componentes (tarjetas, b
 
 ```
 guia-arequipa/
-├── index.html              # cascarón de la SPA
-├── public/                 # activos estáticos (favicon)
+├── index.html            
+├── public/                
 ├── src/
-│   ├── main.js              # punto de entrada: monta shell + registra rutas
-│   ├── data/                 # lugares.json, rutas.json (contenido de la guía)
-│   ├── components/           # piezas reutilizables (shell, tarjeta de lugar)
-│   ├── views/                # una función por vista (inicio, explorar, detalle, rutas, favoritos, info)
-│   ├── utils/                # router de hash, store de favoritos, helpers de DOM, iconos SVG
-│   └── styles/                # tokens.css, base.css, layout.css, components.css, views.css
+│   ├── main.js            
+│   ├── data/               
+│   ├── components/        
+│   ├── views/              
+│   ├── utils/               
+│   └── styles/            
 ├── scripts/
-│   └── smoke-test.py         # prueba de humo end-to-end con Playwright (opcional)
-└── docs/capturas/            # capturas de pantalla usadas en el informe
+│   └── smoke-test.py        
+└── docs/capturas/            
 ```
 
 ## Cómo ejecutar el proyecto
@@ -75,6 +74,3 @@ python3 scripts/smoke-test.py shots/
 
 - Hilacondo Begazo, Andre Jimmy — ahilacondo@unsa.edu.pe
 
-## Referencias
-
-El informe en PDF (carpeta `LAB03/` del repositorio del curso) documenta con detalle las decisiones de diseño y desarrollo, junto con las referencias bibliográficas usadas (Vite, MDN, WCAG 2.2, GitHub Flow, Conventional Commits, y fuentes turísticas de Arequipa).
