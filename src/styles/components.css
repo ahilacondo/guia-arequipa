@@ -209,7 +209,15 @@
   border: 2px dashed var(--line);
   border-radius: var(--radius);
 }
-.empty svg { width: 56px; height: 56px; }
+.empty svg {
+  width: 56px;
+  height: 56px;
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .empty p { color: var(--muted); max-width: 44ch; }
 
 /* ---- barra de progreso ---- */
